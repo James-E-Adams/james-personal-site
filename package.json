@@ -9,13 +9,18 @@
     "react-scripts": "1.1.4",
     "recompose": "^0.27.1"
   },
+  "now": {
+    "alias": "james"
+  },
   "scripts": {
     "build:css": "postcss src/styles/index.css -o src/index.css",
     "watch:css": "postcss src/styles/index.css -o src/index.css -w",
     "start": "yarn watch:css & react-scripts start",
     "build": "yarn build:css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ship": "yarn build && yarn deploy",
+    "deploy": "cd build && now --name james-site --public --alias james && cd .. && now alias"
   },
   "devDependencies": {
     "autoprefixer": "^8.6.2",
