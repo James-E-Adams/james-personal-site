@@ -9,8 +9,8 @@ const Footer = props => (
       <SocialIcon className="mr-4" url="https://twitter.com/jamesadams0" />
       <SocialIcon url="https://medium.com/@jamesadams0" />
     </div>
-    <div className="mt-2 italic">
-      Made with love on a lazy Saturday evening in June...
+    <div className="mt-3 italic">
+      Made with ❤️ on a lazy Saturday evening in June...
     </div>
   </div>
 );

@@ -4,11 +4,16 @@ import withClassName from "./__lib__/react/withClassName";
 import Emoji from "./Emoji";
 const AboutMe = ({ className }) => (
   <div className={className}>
-    <span className="mr-1">Hi! I'm James. I mostly do web stuff for</span>
-    <a href="https://twitter.com/drawboard" className="text-blue no-underline">
-      @drawboard
-    </a>
-    <span>.</span>
+    <div>
+      <span className="mr-1">Hi! I'm James. I mostly do web stuff for</span>
+      <a
+        href="https://twitter.com/drawboard"
+        className="text-blue no-underline"
+      >
+        @drawboard
+      </a>
+      <span>.</span>
+    </div>
     <div>
       <span className="mr-1">Sometimes I pretend I'm a</span>
       <a
@@ -29,4 +34,6 @@ const AboutMe = ({ className }) => (
   </div>
 );
 
-export default withClassName("text-2xl")(AboutMe);
+export default withClassName(
+  "text-2xl ml-3 mr-3 pt-2 flex flex-col justify-center h-full"
+)(AboutMe);
