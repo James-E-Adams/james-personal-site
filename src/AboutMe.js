@@ -1,6 +1,7 @@
 import React from "react";
 import withClassName from "./__lib__/react/withClassName";
 
+import Emoji from "./Emoji";
 const AboutMe = ({ className }) => (
   <div className={className}>
     <span className="mr-1">Hi! I'm James. I mostly do web stuff for</span>
@@ -19,8 +20,11 @@ const AboutMe = ({ className }) => (
       <span>.</span>
     </div>
     <div className="mt-3">
-      When I'm not sitting/standing/dancing in front of the 💻, you can find me
-      drinking ☕ or 🧗‍♂️.
+      When I'm not sitting/standing/dancing in front of the{" "}
+      <Emoji name="computer" emoji="💻" />, you can find me drinking<Emoji
+        emoji="☕"
+        name="coffee"
+      />or<Emoji name="climbing" emoji="🧗‍♂️" />.
     </div>
   </div>
 );
