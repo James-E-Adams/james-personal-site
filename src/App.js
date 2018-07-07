@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
+
 import "./App.css";
 import Header from "./Header";
-import AboutMe from "./AboutMe";
 import Footer from "./Footer";
-class App extends Component {
-  render() {
-    return (
-      <div className="min-h-screen text-center flex flex-col justify-between">
-        <Header className="pt-3" />
-        <AboutMe />
-        <Footer className="pb-3" />
-      </div>
-    );
-  }
-}
+import Body from "./Body";
+import withState from "recompose/withState";
 
-export default App;
+const App = ({ setTab, tab }) => (
+  <div className="min-h-screen text-center flex flex-col justify-between">
+    <Header setTab={setTab} tab={tab} className="pt-3" style={{ flex: 2 }} />
+    <Body tab={tab} style={{ flex: 50 }} />
+    <Footer className="pb-3" style={{ flex: 1 }} />
+  </div>
+);
+export default withState("tab", "setTab", "aboutMe")(App);
