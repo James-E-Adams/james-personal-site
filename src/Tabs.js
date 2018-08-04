@@ -11,8 +11,10 @@ const Divider = withClassName(["text-4xl"])(({ className }) => (
 const Tabs = ({
   setTabToAboutMe,
   setTabToBlog,
+  setTabToReadingList,
   aboutMeClassName,
-  blogClassName
+  blogClassName,
+  readingListClassName
 }) => (
   <div>
     <span onClick={setTabToBlog} className={blogClassName}>
@@ -22,20 +24,27 @@ const Tabs = ({
     <span onClick={setTabToAboutMe} className={aboutMeClassName}>
       Me
     </span>
+    <Divider className="ml-3 mr-3" />
+    <span onClick={setTabToReadingList} className={readingListClassName}>
+      Currently reading
+    </span>
   </div>
 );
 
 const setTabToAboutMe = ({ setTab }) => e => setTab("aboutMe");
 const setTabToBlog = ({ setTab }) => e => setTab("blog");
+const setTabToReadingList = ({ setTab }) => e => setTab("readingList");
 
 const tabClassNames = ({ tab }) => ({
   aboutMeClassName: ["text-3xl", tab === "aboutMe" && "font-bold"],
-  blogClassName: ["text-3xl", tab === "blog" && "font-bold"]
+  blogClassName: ["text-3xl", tab === "blog" && "font-bold"],
+  readingListClassName: ["text-3xl", tab === "readingList" && "font-bold"]
 });
 
 export default compose(
-  withHandlers({ setTabToAboutMe, setTabToBlog }),
+  withHandlers({ setTabToAboutMe, setTabToBlog, setTabToReadingList }),
   withPropsOnChange(["tab"], tabClassNames),
   withClassName(null, "blogClassName"),
-  withClassName(null, "aboutMeClassName")
+  withClassName(null, "aboutMeClassName"),
+  withClassName(null, "readingListClassName")
 )(Tabs);

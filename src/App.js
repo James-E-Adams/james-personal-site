@@ -13,4 +13,4 @@ const App = ({ setTab, tab }) => (
     <Footer className="pb-3" style={{ flex: 1 }} />
   </div>
 );
-export default withState("tab", "setTab", "aboutMe")(App);
+export default withState("tab", "setTab", "readingList")(App);
