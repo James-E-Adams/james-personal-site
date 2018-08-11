@@ -12,9 +12,11 @@ const Tabs = ({
   setTabToAboutMe,
   setTabToBlog,
   setTabToReadingList,
+  setTabToTalks,
   aboutMeClassName,
   blogClassName,
-  readingListClassName
+  readingListClassName,
+  talksClassName
 }) => (
   <div>
     <span onClick={setTabToBlog} className={blogClassName}>
@@ -28,23 +30,38 @@ const Tabs = ({
     <span onClick={setTabToReadingList} className={readingListClassName}>
       Currently reading
     </span>
+    <Divider className="ml-3 mr-3" />
+    <span onClick={setTabToTalks} className={talksClassName}>
+      Talks
+    </span>
   </div>
 );
 
-const setTabToAboutMe = ({ setTab }) => e => setTab("aboutMe");
-const setTabToBlog = ({ setTab }) => e => setTab("blog");
-const setTabToReadingList = ({ setTab }) => e => setTab("readingList");
+const setTabFy = name => ({ setTab }) => () => setTab(name);
 
-const tabClassNames = ({ tab }) => ({
-  aboutMeClassName: ["text-3xl", tab === "aboutMe" && "font-bold"],
-  blogClassName: ["text-3xl", tab === "blog" && "font-bold"],
-  readingListClassName: ["text-3xl", tab === "readingList" && "font-bold"]
-});
+const setTabToAboutMe = setTabFy("aboutMe");
+const setTabToBlog = setTabFy("blog");
+const setTabToReadingList = setTabFy("readingList");
+const setTabToTalks = setTabFy("talks");
+
+const tabClassNameFy = name => ({ tab }) => [
+  "text-3xl",
+  tab === name && "font-bold"
+];
+
+const classNames = {
+  aboutMeClassName: tabClassNameFy("aboutMe"),
+  blogClassName: tabClassNameFy("blog"),
+  readingListClassName: tabClassNameFy("readingList"),
+  talksClassName: tabClassNameFy("talks")
+};
 
 export default compose(
-  withHandlers({ setTabToAboutMe, setTabToBlog, setTabToReadingList }),
-  withPropsOnChange(["tab"], tabClassNames),
-  withClassName(null, "blogClassName"),
-  withClassName(null, "aboutMeClassName"),
-  withClassName(null, "readingListClassName")
+  withHandlers({
+    setTabToAboutMe,
+    setTabToBlog,
+    setTabToReadingList,
+    setTabToTalks
+  }),
+  withClassName(classNames)
 )(Tabs);

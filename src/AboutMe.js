@@ -28,10 +28,10 @@ const AboutMe = ({ className }) => (
       </div>
       <div>
         When I'm not sitting/standing/dancing in front of the{" "}
-        <Emoji name="computer" emoji="💻" />, you can find me drinking<Emoji
-          emoji="☕"
-          name="coffee"
-        />or<Emoji name="climbing" emoji="🧗‍♂️" />.
+        <Emoji name="computer" emoji="💻" />, you can find me drinking
+        <Emoji emoji="☕" name="coffee" />
+        or
+        <Emoji name="climbing" emoji="🧗‍♂️" />.
       </div>
     </div>
   </div>

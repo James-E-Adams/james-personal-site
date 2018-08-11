@@ -15,13 +15,15 @@ const currentlyReading = [
     author: "Brian Lonsdorf"
   },
   {
-    name: "The Republic",
-    author: "Plato"
+    name: "GEB",
+    author: "Douglas Hofstadter"
   }
 ];
 const Blog = () => (
   <div className="mt-6">
-    {currentlyReading.map(book => <Book {...book} />)}
+    {currentlyReading.map(book => (
+      <Book {...book} />
+    ))}
     <div className="text-xl mt-8">
       {" "}
       Past books (since maintaining this list){" "}
@@ -31,8 +33,7 @@ const Blog = () => (
 
 const Book = ({ name, author }) => (
   <div className="mb-2">
-    <span className="italic"> {name} </span> -
-    <span className> {author} </span>
+    <span className="italic"> {name} </span> -<span className> {author} </span>
   </div>
 );
 export default Blog;
