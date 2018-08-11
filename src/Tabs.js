@@ -1,6 +1,5 @@
 import React from "react";
 import withHandlers from "recompose/withHandlers";
-import withPropsOnChange from "recompose/withPropsOnChange";
 import compose from "recompose/compose";
 import withClassName from "./__lib__/react/withClassName";
 

@@ -10,7 +10,11 @@ const Footer = props => (
       <SocialIcon url="https://medium.com/@jamesadams0" />
     </div>
     <div className="mt-3 italic">
-      Made with ❤️ on a lazy Saturday evening in June...
+      Made with{" "}
+      <span role="img" aria-label="heart">
+        ❤️
+      </span>{" "}
+      on a lazy Saturday evening in June...
     </div>
   </div>
 );

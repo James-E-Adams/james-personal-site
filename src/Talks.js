@@ -24,7 +24,7 @@ const Talk = ({ title, context, ...props }) => (
         <span> - </span>
         <span>{context}</span>
       </div>
-      <iframe width="80%" height="400px" {...props}>
+      <iframe title={title} width="80%" height="400px" {...props}>
         {" "}
       </iframe>
     </div>
