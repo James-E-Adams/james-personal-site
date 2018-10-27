@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-const currentlyReading = [
+const booksList = [
   { name: "Atlas Shrugged", author: "Ayn Rand" },
   {
     name: "Antifragile",
@@ -17,23 +17,40 @@ const currentlyReading = [
   {
     name: "GEB",
     author: "Douglas Hofstadter"
+  },
+  {
+    name: "Zero to One: Notes on Startups, or How to Build the Future",
+    link: "https://www.amazon.com/Zero-One-Notes-Startups-Future/dp/0804139296",
+    author: "Peter Thiel",
+    finished: true
   }
-];
+]
+
+const finishedBooks = booksList.filter(book => book.finished)
+const currentlyReadingBooks = booksList.filter(book => !book.finished)
+
 const Blog = () => (
   <div className="mt-6">
-    {currentlyReading.map(book => (
+    {currentlyReadingBooks.map(book => (
       <Book {...book} />
     ))}
-    <div className="text-xl mt-8">
+    <div className="text-xl font-bold mt-8 mb-8">
       {" "}
       Past books (since maintaining this list){" "}
     </div>
+    {finishedBooks.map(book => (
+      <Book {...book} />
+    ))}
   </div>
-);
+)
 
-const Book = ({ name, author }) => (
+const Book = ({ name, author, link }) => (
   <div className="mb-2">
-    <span className="italic"> {name} </span> -<span className> {author} </span>
+    <a className="italic" href={link}>
+      {" "}
+      {name}{" "}
+    </a>{" "}
+    -<span className> {author} </span>
   </div>
-);
-export default Blog;
+)
+export default Blog
